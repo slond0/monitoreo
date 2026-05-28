@@ -9,9 +9,10 @@ import pandas as pd
 # ─────────────────────────────────────────
 #  CONFIG
 # ─────────────────────────────────────────
-BROKER = "broker.hivemq.com"
-PORT   = 1883
-TOPIC  = "petbuddy/sofia/actividad"
+BROKER         = "broker.hivemq.com"
+PORT           = 1883
+TOPIC          = "petbuddy/sofia/actividad"   # suscribe  (PIR desde ESP32)
+TOPIC_ALERTA   = "petbuddy/sofia/alerta"      # publica   (cámara → ESP32)
 
 # ─────────────────────────────────────────
 #  PAGE CONFIG  (debe ir primero)
@@ -328,6 +329,11 @@ else:
         pet_found = bool(detected_labels & PET_CLASSES)
         st.session_state.dog_detected = pet_found
         st.session_state.last_detection = detected_labels
+
+        # ── Publicar alerta MQTT al ESP32 si se detectó mascota ──
+        if mqtt_client:
+            msg_alerta = "alerta" if pet_found else "sin_deteccion"
+            mqtt_client.publish(TOPIC_ALERTA, msg_alerta)
 
         # Alerta visual
         if pet_found:
