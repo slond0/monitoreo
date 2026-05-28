@@ -1,8 +1,9 @@
 streamlit
 paho-mqtt
+pillow
+numpy
+pandas
 ultralytics
+opencv-python-headless
 torch
 torchvision
-pillow
-pandas
-numpy
