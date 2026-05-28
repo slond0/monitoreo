@@ -175,9 +175,10 @@ col_img, col_control = st.columns([1, 2], gap="large")
 
 with col_img:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(
-        "https://cdn-icons-png.flaticon.com/512/2785/2785819.png",
-        width=180,
+   st.image(
+    "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+    width=180,
+)
     )
     st.markdown('</div>', unsafe_allow_html=True)
 
