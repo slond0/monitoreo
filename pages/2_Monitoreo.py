@@ -393,9 +393,9 @@ with tab_feed:
     with col_img2:
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.image(
-            "https://cdn-icons-png.flaticon.com/512/2785/2785819.png",
-            width=170,
-        )
+    "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+    width=180,
+)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with col_ctrl:
